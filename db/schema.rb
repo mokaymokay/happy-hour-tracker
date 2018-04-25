@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_24_231453) do
+ActiveRecord::Schema.define(version: 2018_04_25_034013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2018_04_24_231453) do
     t.string "last_name"
     t.integer "age"
     t.boolean "likes_beer"
+    t.integer "happy_hour_event_id"
+  end
+
+  create_table "happy_hour_events", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.integer "capacity"
   end
 
 end

@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require_relative './models/Attendee'
+require_relative './models/HappyHourEvent'
 
 set :database, {adapter: 'postgresql', database: 'happyhour'}
 
