@@ -1,7 +1,9 @@
-<h1>Events</h1>
+<h4>Events</h4>
 <br>
-<ul class="list-group">
+<ul class="list-group list-group-flush col-md-4">
 <% @events.each do |event| %>
-  <a href="/events/<%= event.id %>"><li class="list-group-item"><%= event.name %></li></a>
+  <li class="list-group-item list-group-item-action"><a href="/events/<%= event.id %>"><%= event.name %></a></li>
 <% end %>
 </ul>
+<br>
+<a href="/events/new"><button class="btn btn-success">Add Event</button></a>

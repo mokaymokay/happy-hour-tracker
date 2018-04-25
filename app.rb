@@ -20,21 +20,20 @@ post '/events/new' do
   redirect "/events/#{@event.id}"
 end
 
-put '/attendees/:id' do
-  @current_attendee = Attendee.find(params[:id])
-  @current_attendee.update(first_name: params[:first_name], last_name: params[:last_name], age: params[:age], likes_beer: params[:likes_beer])
-  redirect "/attendees"
-end
-
-get '/attendees' do
-  @attendees = Attendee.all
-  erb :'attendees/index'
+delete '/events/:id' do
+  HappyHourEvent.destroy(params[:id])
+  redirect '/'
 end
 
 get '/events/:id' do
   @event = HappyHourEvent.find(params[:id])
   @attendees = Attendee.where(happy_hour_event_id: params[:id])
   erb :'events/show'
+end
+
+get '/attendees' do
+  @attendees = Attendee.all
+  erb :'attendees/index'
 end
 
 get '/attendees/new' do
