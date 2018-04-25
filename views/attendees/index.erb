@@ -1,0 +1,33 @@
+<h4>All Attendees</h4>
+<br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 10%">#</th>
+      <th scope="col" style="width: 15%">First</th>
+      <th scope="col" style="width: 15%">Last</th>
+      <th scope="col" style="width: 10%">Age</th>
+      <th scope="col" style="width: 15%">Likes Beer</th>
+      <th scope="col" style="width: 15%">Event ID</th>
+      <th scope="col" style="width: 10%"></th>
+      <th scope="col" style="width: 10%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @attendees.each_with_index do |attendee, index| %>
+    <tr>
+      <th scope="row"><%= index + 1 %></th>
+      <td><%= attendee.first_name %></td>
+      <td><%= attendee.last_name %></td>
+      <td><%= attendee.age %></td>
+      <td><%= attendee.likes_beer %></td>
+      <td><%= attendee.happy_hour_event_id %></td>
+      <td><a href="/attendees/<%= attendee.id %>/edit"><button type="button" class="btn btn-outline-primary btn-sm">Edit</button></a></td>
+      <form action="/attendees/<%= attendee.id %>" method="post" onsubmit="return confirm('Are you sure you want to delete this attendee?')">
+        <input type="hidden" name="_method" value="delete">
+      <td><a href="/attendees/<%= attendee.id %>"><button type="submit" class="btn btn-outline-danger btn-sm">Delete</button></a></td>
+      </form>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

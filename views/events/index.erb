@@ -1,0 +1,7 @@
+<h1>Events</h1>
+<br>
+<ul class="list-group">
+<% @events.each do |event| %>
+  <a href="/events/<%= event.id %>"><li class="list-group-item"><%= event.name %></li></a>
+<% end %>
+</ul>
