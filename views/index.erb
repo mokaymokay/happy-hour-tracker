@@ -1,15 +1,15 @@
 <h4>Current Attendees</h4>
 <br>
-<table class="table table-striped">
+<table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Age</th>
-      <th scope="col">Likes Beer</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col" style="width: 15%">#</th>
+      <th scope="col" style="width: 15%">First</th>
+      <th scope="col" style="width: 15%">Last</th>
+      <th scope="col" style="width: 15%">Age</th>
+      <th scope="col" style="width: 20%">Likes Beer</th>
+      <th scope="col" style="width: 10%"></th>
+      <th scope="col" style="width: 10%"></th>
     </tr>
   </thead>
   <tbody>
@@ -20,10 +20,10 @@
       <td><%= attendee.last_name %></td>
       <td><%= attendee.age %></td>
       <td><%= attendee.likes_beer %></td>
-      <td><a href="/attendee/<%= attendee.id %>/edit"><button type="button" class="btn btn-primary btn-sm">Edit</button></a></td>
+      <td><a href="/attendee/<%= attendee.id %>/edit"><button type="button" class="btn btn-outline-primary btn-sm">Edit</button></a></td>
       <form action="/attendee/<%= attendee.id %>" method="post" onsubmit="return confirm('Are you sure you want to delete this attendee?')">
         <input type="hidden" name="_method" value="delete">
-      <td><a href="/attendee/<%= attendee.id %>"><button type="submit" class="btn btn-primary btn-sm">Delete</button></a></td>
+      <td><a href="/attendee/<%= attendee.id %>"><button type="submit" class="btn btn-outline-danger btn-sm">Delete</button></a></td>
       </form>
     </tr>
     <% end %>
