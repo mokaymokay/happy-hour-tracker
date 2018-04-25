@@ -8,6 +8,8 @@
       <th scope="col">Last</th>
       <th scope="col">Age</th>
       <th scope="col">Likes Beer</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,11 @@
       <td><%= attendee.last_name %></td>
       <td><%= attendee.age %></td>
       <td><%= attendee.likes_beer %></td>
+      <td><a href="/attendee/<%= attendee.id %>/edit"><button type="button" class="btn btn-primary btn-sm">Edit</button></a></td>
+      <form action="/attendee/<%= attendee.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+      <td><a href="/attendee/<%= attendee.id %>"><button type="submit" class="btn btn-primary btn-sm">Delete</button></a></td>
+      </form>
     </tr>
     <% end %>
   </tbody>
